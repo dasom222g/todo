@@ -14,7 +14,6 @@ function TodoList() {
     setTodos(newTodo)
     console.log('addTodo실행')
     console.log('todo', todo, 'todos', todos)
-    // console.log('newTodo', newTodo)
   }
   
   const completeTodo = id => {
