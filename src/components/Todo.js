@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import TodoForm from './TodoForm'
-import TodoList from './TodoList'
 // import { IoMdPerson } from 'react-icons/io'
 import {RiCloseCircleLine} from 'react-icons/ri'
 import {TiEdit} from 'react-icons/ti'
@@ -14,13 +13,14 @@ function Todo({todos, completeTodo, removeTodo, updateTodo}) {
 
   const submitUpdate = value => {
     updateTodo(edit.id, value)
+    console.log('edit value', value)
     setEdit({
       id: null,
       value: ''
     })
   }
 
-  if (edit.id) {
+  if (edit.id) { //edit 버튼 클릭시 실행
     return <TodoForm edit={edit} onSubmit={submitUpdate} />
   }
 
