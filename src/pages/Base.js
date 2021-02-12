@@ -1,12 +1,11 @@
 import '../App.css';
 import { Component } from 'react';
-import Subject from '../components/Subject'
-import TOC from '../components/TOC'
-import ReadContent from '../components/ReadContent'
-import CreateContent from '../components/CreateContent'
-import UpdateContent from '../components/UpdateContent'
-import Control from '../components/Control';
-// import TodoList from './components/TodoList';
+import Subject from '../components/base/Subject'
+import TOC from '../components/base/TOC'
+import ReadContent from '../components/base/ReadContent'
+import CreateContent from '../components/base/CreateContent'
+import UpdateContent from '../components/base/UpdateContent'
+import Control from '../components/base/Control';
 
 class Base extends Component {
   // constructor 내부소스는 제일 먼저 실행되어 초기화를 담당
@@ -96,7 +95,6 @@ class Base extends Component {
     // 화면 html부분
     return (
       <div className="wrap">
-        {/* <TodoList /> */}
         <Subject title="헤헤" sub={this.state.subject.sub} onChangePage={() => {
           this.setState({
             mode: 'welcome'
