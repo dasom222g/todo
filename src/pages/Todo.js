@@ -1,4 +1,4 @@
-import '../App.css';
+import '../assets/style/pages.scss';
 import { Component } from 'react';
 import TodoForm from '../components/todo/TodoForm';
 import TodoList from '../components/todo/TodoList';
@@ -87,6 +87,9 @@ class Todo extends Component {
     console.log('remove id', id)
     const contents = Array.from(this.state.todoList)
     const removeArr = contents.filter(item => item.id !== id)
+    removeArr.forEach((item, index) => {
+      item.id = index + 1
+    })
     this.setState({todoList: removeArr})
   }
 
