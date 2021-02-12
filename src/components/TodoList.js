@@ -33,11 +33,11 @@ function TodoList() {
     let updatedTodos = todos.map(todo => {
       if (todo.id === id) {
         todo.isComplete = !todo.isComplete
-        console.log(todo.isComplete)
       }
       return todo
     })
     setTodos(updatedTodos)
+    console.log('updatedTodos', updatedTodos)
   }
 
   return (
