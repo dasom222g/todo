@@ -1,11 +1,24 @@
 @import './reset.scss';
 @import './variables.scss';
 @import './mixin.scss';
-// @import './common.scss';
+@import './todo.scss';
+@import './common.scss';
 
-.todo {
-  &__title {
-    font-size: 30px;
-    color: $green;
+.wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $gray-100;
+}
+
+section { 
+  & + & {
+    margin-top: 40px;
   }
 }

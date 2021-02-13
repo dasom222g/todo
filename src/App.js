@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     // 화면 html부분
     return (
-      <div className="wrap">
+      <div className="content-wrapper">
         <Todo />
         {/* <TodoList /> */}
         {/* <Base /> */}

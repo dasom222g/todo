@@ -11,7 +11,6 @@ class TodoFormUpdate extends Component {
   //로직 부분
   handleSubmit = e => {
     e.preventDefault()
-    console.log(this.state.input, this.state.data)
     const _data = Object.assign(this.state.data)
     _data.title = this.state.input
     this.props.updateTodo(_data)
@@ -32,6 +31,7 @@ class TodoFormUpdate extends Component {
             method="post"
             onSubmit={this.handleSubmit}
           >
+            <input type="hidden" value={this.state.data.id} />
             <div className="form-wrap">
               <input
                 className="form__element"
@@ -43,7 +43,7 @@ class TodoFormUpdate extends Component {
                 onChange={this.handleChange}
               />
               <button
-                className="form__button"
+                className="form__button update"
                 type="submit"
                 onClick={this.handleSubmit}
               >
