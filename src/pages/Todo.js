@@ -1,8 +1,10 @@
 import '../assets/style/pages.scss';
 import { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import TodoForm from '../components/todo/TodoForm';
-import TodoList from '../components/todo/TodoList';
 import TodoFormUpdate from '../components/todo/TodoFormUpdate';
+import TodoList from '../components/todo/TodoList';
+import TodoDetail from '../components/todo/TodoDetail';
 
 class Todo extends Component {
   // constructor 내부소스는 제일 먼저 실행되어 초기화를 담당
@@ -101,17 +103,24 @@ class Todo extends Component {
           <h2 className="todo__title">What’s the Plan for Today?</h2>
         </header>
         {this.getContent()}
-        {this.state.mode !== 'update' ? 
-          (
+        {this.state.mode !== 'update' && this.state.mode !== 'read'  && 
             <TodoList
-              lists={this.state.todoList}
-              onChangeMode={this.changeMode}
-              selected={this.selectedTodo}
-              completeTodo={this.completeTodo}
-              removeTodo={this.removeTodo}
+            lists={this.state.todoList}
+            onChangeMode={this.changeMode}
+            selected={this.selectedTodo}
+            completeTodo={this.completeTodo}
+            removeTodo={this.removeTodo}
+          />
+        }
+        {this.state.mode === 'read' && 
+          <Switch>
+            <Route
+              path="/todo/:itemid"
+              exact
+              render={() => <TodoDetail updateData={this.state.selectedItem} onChangeMode={this.changeMode} />}
             />
-          ) : 
-          (<></>)
+            <Route path="/todo">Not found</Route>
+          </Switch>
         }
       </div>
     )
