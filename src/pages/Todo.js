@@ -1,7 +1,7 @@
 import '../assets/style/pages.scss';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import TodoForm from '../components/todo/TodoForm';
+import TodoForm from '../components/todo/TodoFormCreate';
 import TodoFormUpdate from '../components/todo/TodoFormUpdate';
 import TodoList from '../components/todo/TodoList';
 import TodoDetail from '../components/todo/TodoDetail';

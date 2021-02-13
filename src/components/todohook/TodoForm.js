@@ -25,38 +25,42 @@ function TodoForm(props) {
   }
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
-      {props.edit ? 
-        (
-          <div>
-            <input
-              type="text"
-              placeholder="Add a todo"
-              value={input}
-              name="text"
-              className="todo-input edit"
-              onChange={handleChange}
-              ref={inputRef}
-            />
-            <button className="todo-button edit">Edit todo</button>
-          </div>
-        ) : 
-        (
-          <div>
-            <input
-              type="text"
-              placeholder="Add a todo"
-              value={input}
-              name="text"
-              className="todo-input"
-              onChange={handleChange}
-              ref={inputRef}
-            />
-            <button className="todo-button">Add todo</button>
-          </div>
-        )
-      }
-    </form>
+    <section>
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+          {props.edit ? 
+            (
+              <div className="form-wrap">
+                <input
+                  type="text"
+                  placeholder="Add a todo"
+                  value={input}
+                  name="text"
+                  className="form__element"
+                  onChange={handleChange}
+                  ref={inputRef}
+                />
+                <button className="form__button update">Update</button>
+              </div>
+            ) : 
+            (
+              <div className="form-wrap">
+                <input
+                  type="text"
+                  placeholder="Add a todo"
+                  value={input}
+                  name="text"
+                  className="form__element"
+                  onChange={handleChange}
+                  ref={inputRef}
+                />
+                <button className="form__button">Add</button>
+              </div>
+            )
+          }
+        </form>
+      </div>
+    </section>
   )
 }
 

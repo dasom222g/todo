@@ -25,30 +25,39 @@ function Todo({todos, completeTodo, removeTodo, updateTodo}) {
   }
 
   return (
-    <ul className="todo-list">
-      {todos.map((todo, index) => {
-        return <li key={index}>
-          <div
-            className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
-            >
-            <div onClick={() => completeTodo(todo.id)}>{todo.text}</div>
-          </div>
-          <div className="icons">
-            <RiCloseCircleLine
-              onClick={() => removeTodo(todo.id)}
-              className="delete-icon"
-            />
-            <TiEdit
-              onClick={() => setEdit({
-                id: todo.id,
-                value: todo.text
-              })}
-              className="edit-icon"
-            />
-          </div>
-        </li>
-      })}
-    </ul>
+    <section>
+      <ul className="todo__list">
+        {todos.map((todo, index) => {
+          return <li key={index} className="todo__item">
+            <div className={todo.isComplete ? 'todo__content complete' : 'todo__content'}>
+              <div
+                className="todo__content-text"
+                onClick={() => completeTodo(todo.id)
+              }
+                >{todo.text}
+              </div>
+              <div className="todo__item-buttonarea additional-item">
+                <div className="todo__item-button">
+                  <RiCloseCircleLine
+                    onClick={() => removeTodo(todo.id)}
+                    className="todo__item-button-icon delete"
+                  />
+                </div>
+                <div className="todo__item-button">
+                  <TiEdit
+                    onClick={() => setEdit({
+                      id: todo.id,
+                      value: todo.text
+                    })}
+                    className="todo__item-button-icon update"
+                  />
+                </div>
+              </div>
+            </div>
+          </li>
+        })}
+      </ul>
+    </section>
   )
 }
 
