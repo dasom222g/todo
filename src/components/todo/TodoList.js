@@ -6,12 +6,6 @@ import {RiCloseCircleLine} from 'react-icons/ri'
 import {TiEdit} from 'react-icons/ti'
 
 class TodoList extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      
-    }
-  }
   setUpdate = item => {
     this.props.onChangeMode('update')
     this.props.selected(item)
@@ -26,7 +20,7 @@ class TodoList extends Component {
   }
 
   render() {
-    console.log('todolist render')
+    console.log('todoList render')
     return (
       <section>
         <ul className="todo__list">

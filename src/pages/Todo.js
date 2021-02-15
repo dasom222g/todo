@@ -1,8 +1,7 @@
 import '../assets/style/pages.scss';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import TodoForm from '../components/todo/TodoFormCreate';
-import TodoFormUpdate from '../components/todo/TodoFormUpdate';
+import TodoForm from '../components/todo/TodoForm';
 import TodoList from '../components/todo/TodoList';
 import TodoDetail from '../components/todo/TodoDetail';
 
@@ -13,32 +12,15 @@ class Todo extends Component {
     this.state = {
       mode: 'create', //create, update, delete
       todoList: [],
-      selectedItem: null, 
+      selectedItem: null,
       selectedItemId : 0,
     }
   }
-  
+
   // 로직부분
 
   changeMode = (_mode) => {
     this.setState({mode: _mode})
-  }
-
-  getContent () {
-    let _article = null
-    if (this.state.mode === 'create' || this.state.mode === 'delete') {
-      _article = <TodoForm
-          addTodo={this.addTodo}
-          onChangeMode={this.changeMode}
-        />
-    } else if (this.state.mode === 'update') {
-      _article = <TodoFormUpdate
-        updateData={this.state.selectedItem}
-        onChangeMode={this.changeMode}
-        updateTodo={this.updateTodo}
-      />
-    }
-    return _article
   }
 
   addTodo = text => {
@@ -60,7 +42,6 @@ class Todo extends Component {
 
   selectedTodo = selectedItem => {
     this.setState({selectedItem: selectedItem})
-    console.log('selectedItem', selectedItem)
   }
 
   updateTodo = (updateItem) => {
@@ -86,7 +67,6 @@ class Todo extends Component {
   }
 
   removeTodo = id => {
-    console.log('remove id', id)
     const contents = Array.from(this.state.todoList)
     const removeArr = contents.filter(item => item.id !== id)
     removeArr.forEach((item, index) => {
@@ -102,8 +82,16 @@ class Todo extends Component {
         <header>
           <h2 className="todo__title">What’s the Plan for Today?</h2>
         </header>
-        {this.getContent()}
-        {this.state.mode !== 'update' && this.state.mode !== 'read'  && 
+        {this.state.mode !== 'read' &&
+          <TodoForm
+            addTodo={this.addTodo}
+            updateTodo={this.updateTodo}
+            onChangeMode={this.changeMode}
+            mode={this.state.mode}
+            updateData={this.state.selectedItem}
+          />
+        }
+        {this.state.mode !== 'update' && this.state.mode !== 'read'  &&
             <TodoList
             lists={this.state.todoList}
             onChangeMode={this.changeMode}
@@ -112,7 +100,7 @@ class Todo extends Component {
             removeTodo={this.removeTodo}
           />
         }
-        {this.state.mode === 'read' && 
+        {this.state.mode === 'read' &&
           <Switch>
             <Route
               path="/todo/:itemid"
