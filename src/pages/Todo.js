@@ -1,4 +1,3 @@
-import '../assets/style/pages.scss';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import TodoForm from '../components/todo/TodoForm';
@@ -10,7 +9,7 @@ class Todo extends Component {
   constructor(props) {// 매개변수로 전달하는 props키워드는 그냥 샤용하기
     super(props)
     this.state = {
-      mode: 'create', //create, update, delete
+      mode: 'create', //create, update, delete, read
       todoList: [],
       selectedItem: null,
       selectedItemId : 0,

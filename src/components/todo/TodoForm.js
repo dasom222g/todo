@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class TodoFormCreate extends Component {
+class TodoForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,11 +46,11 @@ class TodoFormCreate extends Component {
   }
 
   handleChange = e => {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({input: e.target.value})
   }
 
   render() {
-    console.log('todoFormCreate render')
+    console.log('TodoForm render')
     return (
       <section>
         <div className="form">
@@ -65,7 +65,7 @@ class TodoFormCreate extends Component {
                 <input
                   className="form__element"
                   id="title"
-                  name="input"
+                  name="title"
                   type="text"
                   value={this.state.input}
                   placeholder="Write a new todo"
@@ -74,7 +74,6 @@ class TodoFormCreate extends Component {
                 <button
                   className="form__button"
                   type="submit"
-                  onClick={this.handleSubmit}
                 >
                   Add
                 </button>
@@ -92,16 +91,15 @@ class TodoFormCreate extends Component {
                   <input
                     className="form__element"
                     id="title"
-                    name="input"
+                    name="title"
                     type="text"
                     value={this.state.input}
-                    placeholder="edit"
+                    placeholder="Write a update todo"
                     onChange={this.handleChange}
                   />
                   <button
                     className="form__button update"
                     type="submit"
-                    onClick={this.handleSubmit}
                   >
                     Update
                   </button>
@@ -115,4 +113,4 @@ class TodoFormCreate extends Component {
   }
 }
 
-export default TodoFormCreate;
+export default TodoForm;

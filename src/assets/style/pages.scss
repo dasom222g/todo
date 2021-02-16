@@ -28,8 +28,27 @@
   background-color: $gray-100;
 }
 
-section { 
+section {
   & + & {
     margin-top: 40px;
+  }
+}
+
+.container {
+  border: 5px solid red;
+  padding: 10px;
+  margin: 5px;
+  h1 {
+    font-size: rem(30px);
+    font-weight: 500;
+  }
+  h2 {
+    font-size: rem(20px);
+    font-weight: 500;
+  }
+  button {
+    border: 1px solid $gray-700;
+    padding: 2px;
+    border-radius: 5px;
   }
 }
