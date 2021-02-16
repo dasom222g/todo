@@ -15,7 +15,7 @@ function TodoHook() {
       <header>
         <h2 className="todo__title">What’s the Plan for Today?</h2>
       </header>
-      <TodoForm  addTodo={addTodo} />
+      {mode === 'create' ? (<TodoForm  addTodo={addTodo} />) : null}
     </div>
   )
 }
