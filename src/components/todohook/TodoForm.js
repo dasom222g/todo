@@ -23,12 +23,12 @@ function TodoForm(props) {
     })
     setInput('')
   }
-
+  console.log(props.edit)
   return (
     <section>
       <div className="form">
         <form onSubmit={handleSubmit}>
-          {props.edit ? 
+          {props.edit ?
             (
               <div className="form-wrap">
                 <input
@@ -42,7 +42,7 @@ function TodoForm(props) {
                 />
                 <button className="form__button update">Update</button>
               </div>
-            ) : 
+            ) :
             (
               <div className="form-wrap">
                 <input
