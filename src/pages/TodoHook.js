@@ -15,7 +15,6 @@ function TodoHook() {
   }
 
   const addTodo = value => {
-    console.log('add todo')
     const newTodoList = {
       id: todoList.length + 1,
       title: value
@@ -66,7 +65,6 @@ function TodoHook() {
 
   const readTodo = item => {
     setSelectedItem(item)
-    console.log(item)
   }
 
   // 화면 html부분
